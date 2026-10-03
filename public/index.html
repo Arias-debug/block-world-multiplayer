@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Block World V3</title>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<div id="loginScreen">
+  <div class="login-card">
+    <div class="logo">BLOCK WORLD</div>
+    <div class="version">MULTIPLAYER V3</div>
+
+    <label>Nombre del jugador</label>
+    <input id="nameInput" maxlength="20" placeholder="Tu nombre">
+
+    <label>Contraseña</label>
+    <input id="passwordInput" type="password" placeholder="Contraseña">
+
+    <button id="loginBtn">ENTRAR AL MUNDO</button>
+    <div id="loginMsg"></div>
+
+    <div class="login-help">Contraseña de prueba: <b>apolo123</b></div>
+  </div>
+</div>
+
+<div id="pauseMenu" class="hidden">
+  <div class="login-card">
+    <div class="logo">BLOCK WORLD</div>
+    <p>Juego pausado</p>
+    <button id="resumeBtn">VOLVER AL JUEGO</button>
+  </div>
+</div>
+
+<div id="hud" class="hidden">
+  <div id="crosshair"><span></span><span></span></div>
+
+  <div id="status">
+    <div id="coords">X 0 · Y 0 · Z 0</div>
+    <div id="biome">Llanura</div>
+    <div id="timeState">Día</div>
+    <div id="online">1 jugador</div>
+  </div>
+
+  <div id="playersBox">
+    <div class="box-title">JUGADORES</div>
+    <div id="playersList"></div>
+  </div>
+
+  <div id="selectedBlock">Césped</div>
+
+  <div id="hotbar">
+    <div class="slot selected"><div class="block-icon grass"></div><small>1</small></div>
+    <div class="slot"><div class="block-icon dirt"></div><small>2</small></div>
+    <div class="slot"><div class="block-icon stone"></div><small>3</small></div>
+    <div class="slot"><div class="block-icon sand"></div><small>4</small></div>
+    <div class="slot"><div class="block-icon wood"></div><small>5</small></div>
+    <div class="slot"><div class="block-icon leaves"></div><small>6</small></div>
+    <div class="slot"><div class="block-icon snow"></div><small>7</small></div>
+    <div class="slot"><div class="block-icon brick"></div><small>8</small></div>
+  </div>
+
+  <div id="chat">
+    <div id="messages"></div>
+    <input id="chatInput" placeholder="Escribe un mensaje..." maxlength="160">
+  </div>
+
+  <div id="help">
+    WASD mover · Shift correr · Espacio saltar · Enter chat
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="./js/game.js"></script>
+
+</body>
+</html>
